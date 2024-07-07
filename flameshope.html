@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flames - Hope</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <h1>flames / hope</h1>
+    <h4>the infamous, timeless, most trusted determiner of your relationships</h4>
+
+    <p>click the button to start hoping!!</p>
+    <button id="start">start</button>
+
+    <label for="nameOne">enter your name</label>
+    <input type="text" name="nameOne" id="nameOne">
+    <label for="nameTwo">enter their name</label>
+    <input type="text" name="nameTwo" id="nameTwo">
+
+    <button id="calc">flame it!</button>
+
+    <!-- modal -->
+
+    <div class="modal">
+        <h2 id="fResult"></h2>
+        <p id="fcomment"></p>
+        <h2 id="hResult"></h2>
+    </div>
+
+
+    <script>
+        
+
+        document.getElementById('calc').addEventListener('click', function(e){
+            let aName = document.getElementById('nameOne').value;
+            let bName = document.getElementById('nameTwo').value;
+            let aLetters = aName.split('').filter(char=> char !== ' ');
+            let bLetters = bName.split('').filter(char=> char !== ' ');
+            let filteredletters = [];
+
+           let filteredA = aLetters.filter(char => !bLetters.includes(char));
+           let filteredB = bLetters.filter(char => !aLetters.includes(char))
+        //    this^ is basically this:
+//            let filteredB = bLetters.filter(function(char) {
+//                  return !aLetters.includes(char);
+//              });
+            let uniquenum = filteredA.length + filteredB.length;
+            let fnum = uniquenum;
+            let hnum = uniquenum;
+
+            while (hnum > 4){
+                hnum = hnum - 4;
+            }
+
+            switch(hnum){
+                case 0:
+                    document.getElementById('hResult').innerHTML = "bahala na si batman sa inyo";
+                    break;
+                case 1:
+                    document.getElementById('hResult').innerHTML = "HINDI";
+                    break;
+                case 2:
+                    document.getElementById('hResult').innerHTML = "OO NAMAN YES";
+                    break;
+                case 3:
+                    document.getElementById('hResult').innerHTML = "pwede na";
+                    break;
+                case 4:
+                    document.getElementById('hResult').innerHTML = "ewan ko bhie";
+                    break;
+            }
+
+            while(fnum > 6){
+                fnum = fnum - 6;
+            }
+
+            switch (fnum){
+                case 0: 
+                    document.getElementById('fResult').innerHTML = "TINADHANA";
+                    document.getElementById('fcomment').innerHTML = "edi kayo na meant to be!!!! (o baka naman pareho lang kayo pangalan)"
+                    break;
+                case 1:
+                    document.getElementById('fResult').innerHTML = "Friends";
+                    document.getElementById('fcomment').innerHTML = "kaibigan lang pala..."
+                    break;
+                case 2: 
+                    document.getElementById('fResult').innerHTML = "Love";
+                    document.getElementById('fcomment').innerHTML = "pag-ibig na to!"
+                    break;
+                case 3:
+                    document.getElementById('fResult').innerHTML = "Anger";
+                    document.getElementById('fcomment').innerHTML = "baka enemies to lovers talaga kayo"
+                    break;
+                case 4: 
+                    document.getElementById('fResult').innerHTML = "Married";
+                    document.getElementById('fcomment').innerHTML = "sana di kayo magdivorce <3"
+                    break;
+                case 5:
+                    document.getElementById('fResult').innerHTML = "Engaged";
+                    document.getElementById('fcomment').innerHTML = "kahit 299 na singsing ayos lang!!"
+                    break;
+                case 6: 
+                    document.getElementById('fResult').innerHTML = "Soulmates";
+                    document.getElementById('fcomment').innerHTML = "romantically, platonically, kahit ano basta kayo"
+                    break;
+            }
+            console.log(uniquenum);
+            console.log(fnum)
+            console.log(hnum)
+
+            
+        })
+    </script>
+</body>
+</html>
